@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "dataSourceId": {
+            "required": true,
+            "type": "string"
+        },
+        "limit": {
+            "type": "integer"
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "userId": {
+            "required": true,
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

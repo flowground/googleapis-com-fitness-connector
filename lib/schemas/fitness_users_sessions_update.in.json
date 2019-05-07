@@ -1,0 +1,94 @@
+{
+    "type": "object",
+    "properties": {
+        "currentTimeMillis": {
+            "type": "string"
+        },
+        "sessionId": {
+            "required": true,
+            "type": "string"
+        },
+        "userId": {
+            "required": true,
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Sessions contain metadata, such as a user-friendly name and time interval information.",
+            "properties": {
+                "activeTimeMillis": {
+                    "description": "Session active time. While start_time_millis and end_time_millis define the full session time, the active time can be shorter and specified by active_time_millis. If the inactive time during the session is known, it should also be inserted via a com.google.activity.segment data point with a STILL activity value",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "activityType": {
+                    "description": "The type of activity this session represents.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "application": {
+                    "description": "The application that created the session.",
+                    "properties": {
+                        "detailsUrl": {
+                            "description": "An optional URI that can be used to link back to the application.",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "The name of this application. This is required for REST clients, but we do not enforce uniqueness of this name. It is provided as a matter of convenience for other developers who would like to identify which REST created an Application or Data Source.",
+                            "type": "string"
+                        },
+                        "packageName": {
+                            "description": "Package name for this application. This is used as a unique identifier when created by Android applications, but cannot be specified by REST clients. REST clients will have their developer project number reflected into the Data Source data stream IDs, instead of the packageName.",
+                            "type": "string"
+                        },
+                        "version": {
+                            "description": "Version of the application. You should update this field whenever the application changes in a way that affects the computation of the data.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "description": {
+                    "description": "A description for this session.",
+                    "type": "string"
+                },
+                "endTimeMillis": {
+                    "description": "An end time, in milliseconds since epoch, inclusive.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A client-generated identifier that is unique across all sessions owned by this particular user.",
+                    "type": "string"
+                },
+                "modifiedTimeMillis": {
+                    "description": "A timestamp that indicates when the session was last modified.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human readable name of the session.",
+                    "type": "string"
+                },
+                "startTimeMillis": {
+                    "description": "A start time, in milliseconds since epoch, inclusive.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

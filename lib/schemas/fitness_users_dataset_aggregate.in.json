@@ -1,0 +1,154 @@
+{
+    "type": "object",
+    "properties": {
+        "userId": {
+            "required": true,
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Next id: 10",
+            "properties": {
+                "aggregateBy": {
+                    "description": "The specification of data to be aggregated. At least one aggregateBy spec must be provided. All data that is specified will be aggregated using the same bucketing criteria. There will be one dataset in the response for every aggregateBy spec.",
+                    "items": {
+                        "description": "The specification of which data to aggregate.",
+                        "properties": {
+                            "dataSourceId": {
+                                "description": "A data source ID to aggregate. Mutually exclusive of dataTypeName. Only data from the specified data source ID will be included in the aggregation. The dataset in the response will have the same data source ID.",
+                                "type": "string"
+                            },
+                            "dataTypeName": {
+                                "description": "The data type to aggregate. All data sources providing this data type will contribute data to the aggregation. The response will contain a single dataset for this data type name. The dataset will have a data source ID of derived:com.google.:com.google.android.gms:aggregated",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "bucketByActivitySegment": {
+                    "description": "Specifies that data be aggregated each activity segment recored for a user. Similar to bucketByActivitySegment, but bucketing is done for each activity segment rather than all segments of the same type. Mutually exclusive of other bucketing specifications.",
+                    "properties": {
+                        "activityDataSourceId": {
+                            "description": "The default activity stream will be used if a specific activityDataSourceId is not specified.",
+                            "type": "string"
+                        },
+                        "minDurationMillis": {
+                            "description": "Specifies that only activity segments of duration longer than minDurationMillis are considered and used as a container for aggregated data.",
+                            "format": "int64",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "bucketByActivityType": {
+                    "description": "Specifies that data be aggregated by the type of activity being performed when the data was recorded. All data that was recorded during a certain activity type (for the given time range) will be aggregated into the same bucket. Data that was recorded while the user was not active will not be included in the response. Mutually exclusive of other bucketing specifications.",
+                    "properties": {
+                        "activityDataSourceId": {
+                            "description": "The default activity stream will be used if a specific activityDataSourceId is not specified.",
+                            "type": "string"
+                        },
+                        "minDurationMillis": {
+                            "description": "Specifies that only activity segments of duration longer than minDurationMillis are considered and used as a container for aggregated data.",
+                            "format": "int64",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "bucketBySession": {
+                    "description": "Specifies that data be aggregated by user sessions. Data that does not fall within the time range of a session will not be included in the response. Mutually exclusive of other bucketing specifications.",
+                    "properties": {
+                        "minDurationMillis": {
+                            "description": "Specifies that only sessions of duration longer than minDurationMillis are considered and used as a container for aggregated data.",
+                            "format": "int64",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "bucketByTime": {
+                    "description": "Specifies that data be aggregated by a single time interval. Mutually exclusive of other bucketing specifications.",
+                    "properties": {
+                        "durationMillis": {
+                            "description": "Specifies that result buckets aggregate data by exactly durationMillis time frames. Time frames that contain no data will be included in the response with an empty dataset.",
+                            "format": "int64",
+                            "type": "string"
+                        },
+                        "period": {
+                            "properties": {
+                                "timeZoneId": {
+                                    "description": "org.joda.timezone.DateTimeZone",
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "enum": [
+                                        "day",
+                                        "month",
+                                        "week"
+                                    ],
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "format": "int32",
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "endTimeMillis": {
+                    "description": "The end of a window of time. Data that intersects with this time window will be aggregated. The time is in milliseconds since epoch, inclusive.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "filteredDataQualityStandard": {
+                    "description": "DO NOT POPULATE THIS FIELD. As data quality standards are deprecated, filling it in will result in no data sources being returned. It will be removed in a future version entirely.",
+                    "items": {
+                        "enum": [
+                            "dataQualityBloodGlucoseIso151972003",
+                            "dataQualityBloodGlucoseIso151972013",
+                            "dataQualityBloodPressureAami",
+                            "dataQualityBloodPressureBhsAA",
+                            "dataQualityBloodPressureBhsAB",
+                            "dataQualityBloodPressureBhsBA",
+                            "dataQualityBloodPressureBhsBB",
+                            "dataQualityBloodPressureEsh2002",
+                            "dataQualityBloodPressureEsh2010",
+                            "dataQualityUnknown"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "startTimeMillis": {
+                    "description": "The start of a window of time. Data that intersects with this time window will be aggregated. The time is in milliseconds since epoch, inclusive.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

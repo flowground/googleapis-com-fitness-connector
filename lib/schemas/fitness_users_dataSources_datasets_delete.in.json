@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "currentTimeMillis": {
+            "type": "string"
+        },
+        "dataSourceId": {
+            "required": true,
+            "type": "string"
+        },
+        "datasetId": {
+            "required": true,
+            "type": "string"
+        },
+        "modifiedTimeMillis": {
+            "type": "string"
+        },
+        "userId": {
+            "required": true,
+            "type": "string"
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

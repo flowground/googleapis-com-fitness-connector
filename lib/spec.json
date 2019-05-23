@@ -6037,7 +6037,7 @@
                 "description": "Oauth 2.0 authentication",
                 "type": "oauth2",
                 "flows": {
-                    "implicit": {
+                    "authorizationCode": {
                         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
                         "scopes": {
                             "https://www.googleapis.com/auth/fitness.activity.read": "View your activity information in Google Fit",
@@ -6058,7 +6058,8 @@
                             "https://www.googleapis.com/auth/fitness.oxygen_saturation.write": "View and store oxygen saturation data in Google Fit",
                             "https://www.googleapis.com/auth/fitness.reproductive_health.read": "View reproductive health data in Google Fit",
                             "https://www.googleapis.com/auth/fitness.reproductive_health.write": "View and store reproductive health data in Google Fit"
-                        }
+                        },
+                        "tokenUrl": "https://www.googleapis.com/oauth2/v4/token"
                     }
                 }
             }
